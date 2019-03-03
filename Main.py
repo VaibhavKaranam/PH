@@ -3,17 +3,23 @@ import webbrowser
 import os
 
 # KeyWords
-KeyWordsDict = {'Mathematics': {'Misc': ['solve','equation','inequality','find','prove','algebraic','algebra','expression']},
-	'Physics': {'Misc': ['velocity']},
-	'Environmental Science': {'Misc': ['renewable']},
-	'Chemistry': {'Misc': ['solution']},
-	'Computer Science': {'Misc': ['algorithm'], 'Back End': ['django','node.js','flask','java','python','ruby','scala','swift','c','pascal','go','groovy''AI'], 'Front End': ['javascript','html','css','design','jquery','UI','UX','Angular','copy pasting','web fonts']},
-	'Sports': {'Misc': ['lineup','starters','tennis','boxing','wii sports']}
+KeyWordsDict = {'Mathematics': {'Misc': ['solve', 'equation', 'inequality', 'find', 'prove', 'algebraic',
+                                         'algebra', 'expression']},
+                'Physics': {'Misc': ['velocity']},
+                'Environmental Science': {'Misc': ['renewable']},
+                'Chemistry': {'Misc': ['solution']},
+                'Computer Science': {'Misc': ['algorithm'],
+                                     'Back End': ['django', 'node.js', 'flask', 'java', 'python', 'ruby',
+                                                  'scala', 'swift', 'c', 'pascal', 'go', 'groovy''AI'],
+                                     'Front End': ['javascript', 'html', 'css', 'design', 'jquery', 'UI', 'UX',
+                                                   'Angular', 'copy pasting', 'web fonts']},
+                'Sports': {'Misc': ['lineup', 'starters', 'tennis', 'boxing', 'wii sports']}
 }
 
 
 # Classes
-class Employee():
+class Employee:
+	
 	def __init__(self, name, email, number, rating, skill=""):
 		self.name = name
 		self.email = email
@@ -24,7 +30,8 @@ class Employee():
 		pass
 	
 	def __str__(self):
-		return "Employee - %s at %s and %s, Rating of %s at %s." % (self.name, self.email, self.number, self.rating, self.skill)
+		return "Employee - %s at %s and %s, Rating of %s at %s." \
+			% (self.name, self.email, self.number,self.rating, self.skill)
 	
 	def assign_task(self, task):
 		self.task = task
@@ -44,17 +51,17 @@ def error(type):
 
 
 # Adding Employees
-def addemployee(name, email, number, rating, skill):
+def add_employee(name, email, number, rating, skill):
 	if name.len() > 50 or name.len() < 1:
 		error("Character limit for name is 50 letters")
 	if rating > 10 or rating < 1:
 		error("Rate must be a value between 1 and 10")
-	newemployee = Employee(name, email, number, rating, skill)
-	EmployeesList.append(newemployee)
+	new_employee = Employee(name, email, number, rating, skill)
+	EmployeesList.append(new_employee)
 
 
 # Printing List of Employees
-def printemployees():
+def print_employees():
 	for employee in EmployeesList:
 		print(employee)
 
