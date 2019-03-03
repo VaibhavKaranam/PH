@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import webbrowser
 import os
+import cgi
 
 # KeyWords
 KeyWordsDict = {'Mathematics': {'Misc': ['solve', 'equation', 'inequality', 'find', 'prove', 'algebraic',
@@ -80,46 +81,3 @@ def break_task(task):
 
 def open_website(url):
 	webbrowser.open(url=url)
-
-
-headers = ["Content-type: text/html"]
-qs = os.environ['QUERY_STRING']
-
-def send_headers():
-	for h in headers:
-		print(h)
-		print("\n")
-
-def send_form():
-	    print ('''
-	    <html>
-	      <body>
-	          <form action='cgi-bin/hellobetter.py' method='get'>
-	              <label for="myname">Enter Your Name</label>
-	              <input id="myname" type="text" name="firstname" value="Nada" />
-	              <input type="submit">
-	          </form>
-	      </body>
-	    </html>
-	    ''')
-
-def send_page(name):
-	print('''
-	<html>
-	      <body>
-	      <h1>Hello {0}</h1>
-	      </body>
-	      </html>
-	      '''.format(name))
-
-
-if not qs:
-	send_headers()
-	send_form()
-else:
-	if 'firstname' in qs:
-		name = qs.split('=')[1]
-	else:
-		name = 'No Name Provided'
-		send_headers()
-		send_page(name)
