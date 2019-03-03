@@ -78,13 +78,13 @@ def open_website(url):
 headers = ["Content-type: text/html"]
 qs = os.environ['QUERY_STRING']
 
-def sendHeaders():
+def send_headers():
 	for h in headers:
 		print(h)
 		print("\n")
 
-def sendForm():
-	    print '''
+def send_form():
+	    print ('''
 	    <html>
 	      <body>
 	          <form action='cgi-bin/hellobetter.py' method='get'>
@@ -94,24 +94,25 @@ def sendForm():
 	          </form>
 	      </body>
 	    </html>
-	    '''
+	    ''')
 
-def sendPage(name):
-	print '''
+def send_page(name):
+	print('''
 	<html>
 	      <body>
 	      <h1>Hello {0}</h1>
 	      </body>
 	      </html>
-	      '''.format(name)
+	      '''.format(name))
+
 
 if not qs:
-	sendHeaders()
-	sendForm()
+	send_headers()
+	send_form()
 else:
 	if 'firstname' in qs:
 		name = qs.split('=')[1]
 	else:
 		name = 'No Name Provided'
-		sendHeaders()
-		sendPage(name)
+		send_headers()
+		send_page(name)
