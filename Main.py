@@ -70,4 +70,4 @@ def break_task(task):
 
 
 def open_website(url):
-	webbrowser.open(url = url)
+	webbrowser.open(url=url)
